@@ -1,7 +1,6 @@
 package com.imooc.service;
 
-import com.imooc.dataobject.OrderDetail;
-import com.imooc.dataobject.OrderMaster;
+
 import com.imooc.dto.OrderDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,5 +19,6 @@ public interface OrderService {
     OrderDTO finish(OrderDTO orderDTO);
     /** 支付订单*/
     OrderDTO paid(OrderDTO orderDTO);
-
+    /** 查询列表*/
+    Page<OrderDTO> findList(Pageable pageable);
 }

@@ -7,9 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class WechatPayConfig {
 
-        @Autowired
-        private WechatAccountConfig accountConfig;
-
+    @Autowired
+    private WechatAccountConfig accountConfig;
 
 
 }

@@ -8,7 +8,11 @@ public class ResultVOUtil {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(0);
         resultVO.setMsg("成功");
-        resultVO.setData(object );
+        resultVO.setData(object);
         return resultVO;
+    }
+
+    public static ResultVO success(){
+        return null;
     }
 }

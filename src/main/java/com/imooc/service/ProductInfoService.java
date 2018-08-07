@@ -8,15 +8,27 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface ProductInfoService  {
+public interface ProductInfoService {
 
-     ProductInfo findOne(String productId);
-     List<ProductInfo> findUpAll();
-     Page<ProductInfo> findAll(Pageable pageable);
-     ProductInfo save(ProductInfo productInfo);
-     //加库存
-     void increaseStock(List<CartDTO> cartDTO);
-     //减库存
-     void decreaseStock(List<CartDTO> cartDTO);
+    ProductInfo findOne(String productId);
+
+    List<ProductInfo> findUpAll();
+
+    Page<ProductInfo> findAll(Pageable pageable);
+
+    ProductInfo save(ProductInfo productInfo);
+
+    //加库存
+    void increaseStock(List<CartDTO> cartDTO);
+
+    //减库存
+    void decreaseStock(List<CartDTO> cartDTO);
+
+    //上架
+    ProductInfo onSale(String productId);
+
+    //下架
+    ProductInfo offSale(String productId);
+
 }
 

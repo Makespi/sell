@@ -1,6 +1,7 @@
 package com.imooc.service.Impl;
 
 import com.imooc.dataobject.ProductInfo;
+import com.imooc.enums.ProductStatusEnum;
 import com.imooc.service.ProductInfoService;
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,8 +15,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.math.BigDecimal;
 
 
-
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ProductInfoImplTest {
@@ -24,16 +23,16 @@ public class ProductInfoImplTest {
     private ProductInfoService productInfoService;
 
     @Test
-    public void testPage(){
-        PageRequest pageRequest = new PageRequest(0,2);
+    public void testPage() {
+        PageRequest pageRequest = new PageRequest(0, 2);
         Page<ProductInfo> productInfos = productInfoService.findAll(pageRequest);
         System.out.print(productInfos.getTotalElements());
 
     }
 
     @Test
-    public void testSave(){
-       ProductInfo productInfos = new ProductInfo();
+    public void testSave() {
+        ProductInfo productInfos = new ProductInfo();
         productInfos.setProductId("2");
         productInfos.setProductName("皮蛋粥");
         productInfos.setProductPrice(new BigDecimal(2.4));
@@ -45,5 +44,12 @@ public class ProductInfoImplTest {
         ProductInfo result = productInfoService.save(productInfos);
         Assert.assertNotNull(result);
     }
+
+    @Test
+    public void onSale() {
+      ProductInfo productInfo = productInfoService.onSale("1");
+      Assert.assertEquals(ProductStatusEnum.UP,productInfo.getProductStatusEnum());
+    }
+
 
 }

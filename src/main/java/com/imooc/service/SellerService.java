@@ -1,0 +1,15 @@
+package com.imooc.service;
+
+
+import com.imooc.dataobject.SellerInfo;
+
+public interface SellerService {
+    /**
+     * 通过openid获取买家端信息
+     * @param openid
+     * @return
+     */
+    SellerInfo findSellerInfoByOpenid(String openid);
+
+
+}
